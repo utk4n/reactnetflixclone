@@ -1,3 +1,14 @@
+# What i used ?
+
+1. UI = Tailwind
+2. React Router
+3. Context API
+4. Firebase
+5. Toastify
+6. React Icons
+7. API = Classic TDMoviedb.com
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
