@@ -6,7 +6,7 @@ const Signup = () => {
 
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const { signUp} = useContext(AuthContext);
+  const {user, signUp} = useContext(AuthContext);
 
   const formSubmit = async (e) => {
     e.preventDefault();

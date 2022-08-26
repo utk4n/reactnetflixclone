@@ -1,15 +1,14 @@
 import { initializeApp } from "firebase/app";
 import {getAuth} from 'firebase/auth'
-
+import {getFirestore} from 'firebase/firestore'
 const firebaseConfig = {
-  apiKey: `AIzaSyBr962S3_yYDpbVbclc5SKxBD4Lx8Uk2H0`,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+  apiKey: "AIzaSyB4eGCMu2pC_oY2bnfLrBZutamf6WMym68",
+  authDomain: "fakenetflix-28f67.firebaseapp.com",
+  projectId: "fakenetflix-28f67",
+  storageBucket: "fakenetflix-28f67.appspot.com",
+  messagingSenderId: "371345187015",
+  appId: "1:371345187015:web:ec2dda8eccc0dba087dee2"
 };
-
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
+export const db = getFirestore(app)

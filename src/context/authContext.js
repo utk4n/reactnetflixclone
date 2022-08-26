@@ -1,18 +1,23 @@
-import { createContext, useState, useEffect} from "react";
-import { auth } from "../firebase/firebaseConfigs";
+import { createContext, useState, useEffect } from "react";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+import { auth, db } from "../firebase/firebaseConfigs";
+
+import {setDoc,doc} from 'firebase/firestore'
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const signUp = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    createUserWithEmailAndPassword(auth, email, password);
+    setDoc(doc(db, 'users', email), {
+      favMovies: []
+  })
   };
 
   const login = (email, password) => {
@@ -27,7 +32,7 @@ export const AuthContextProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
-    return () => unsubscribe()
+    return () => unsubscribe();
   });
 
   return (

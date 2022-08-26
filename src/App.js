@@ -5,6 +5,8 @@ import Main from "./components/Main/Main";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Account from "./Pages/Account";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+
 function App() {
   return (
     <>
@@ -13,7 +15,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/account" element={<Account />} />
+        <Route
+          path="/account"
+          element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </>
   );

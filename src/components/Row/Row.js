@@ -5,10 +5,10 @@ import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
 } from "react-icons/io";
+
 const Row = ({ fetchUrl, title, forSlider }) => {
   const [movies, setMovies] = useState([]);
-  const [like, setLike] = useState(false);
-  
+
   useEffect(() => {
     axios.get(fetchUrl).then((res) => setMovies(res.data.results));
   }, [fetchUrl]);
@@ -37,7 +37,7 @@ const Row = ({ fetchUrl, title, forSlider }) => {
           className="w-full h-full whitespace-nowrap overflow-x-scroll scroll-smooth scrollbar-hide relative"
         >
           {movies.map((movie) => (
-            <Movie like={like} setLike={setLike} key={movie.id} movie={movie} />
+            <Movie key={movie.id} movie={movie} />
           ))}
         </div>
         <IoIosArrowDroprightCircle
